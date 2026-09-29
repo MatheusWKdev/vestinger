@@ -1,0 +1,27 @@
+:root {
+    --color-black: #080808;
+    --color-soft-white: #F2F0EB;
+    --font-brand-temp: "Playfair Display", "Times New Roman", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--color-black);
+    color: var(--color-soft-white);
+    font-family: var(--font-brand-temp);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}

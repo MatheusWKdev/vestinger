@@ -1,0 +1,221 @@
+.intro {
+  --intro-letter-size: clamp(2.15rem, 3.2vw, 3.25rem);
+  --intro-letter-slot: clamp(1.55rem, 4.3vw, 3.25rem);
+  --intro-sword-final-height: clamp(3.6rem, 4vw, 4.5rem);
+  --intro-sword-initial-scale: 2.75;
+  --intro-letter-duration: 1500ms;
+  --intro-sword-duration: 2000ms;
+  --intro-ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --intro-meta-inline: clamp(1rem, 2vw, 2.5rem);
+  --intro-meta-block: clamp(1rem, 2vw, 2.5rem);
+
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.intro__meta {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  color: rgba(242, 240, 235, 0.58);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(0.56rem, 0.62vw, 0.7rem);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 1200ms ease 650ms;
+}
+
+.intro--active .intro__meta {
+  opacity: 1;
+}
+
+.intro__meta--top-left,
+.intro__meta--top-right {
+  top: var(--intro-meta-block);
+}
+
+.intro__meta--bottom-left,
+.intro__meta--bottom-right {
+  bottom: var(--intro-meta-block);
+}
+
+.intro__meta--top-left,
+.intro__meta--bottom-left {
+  left: var(--intro-meta-inline);
+}
+
+.intro__meta--top-right,
+.intro__meta--bottom-right {
+  right: var(--intro-meta-inline);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.intro__meta--bottom-left {
+  max-width: 58vw;
+}
+
+.intro__meta--bottom-right {
+  max-width: 36vw;
+}
+
+.intro__mark {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, var(--intro-letter-slot)))
+    minmax(1.05rem, calc(var(--intro-letter-slot) * 0.58))
+    repeat(4, minmax(0, var(--intro-letter-slot)));
+  align-items: center;
+  justify-content: center;
+  width: min(92vw, calc((var(--intro-letter-slot) * 8) + (var(--intro-letter-slot) * 0.58)));
+  margin-inline: auto;
+}
+
+.intro__letter {
+  display: block;
+  color: var(--color-soft-white);
+  font-family: var(--font-brand-temp);
+  font-size: var(--intro-letter-size);
+  font-weight: 700;
+  line-height: 0.84;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 0;
+  transform: translate3d(var(--intro-start-x), 0, 0);
+  animation-duration: var(--intro-letter-duration);
+  animation-fill-mode: forwards;
+  animation-timing-function: var(--intro-ease);
+  will-change: transform, opacity;
+}
+
+.intro__sword {
+  z-index: 1;
+  width: auto;
+  height: var(--intro-sword-final-height);
+  margin-inline: auto;
+  transform: scale(var(--intro-sword-initial-scale));
+  transform-origin: center;
+  animation-duration: var(--intro-sword-duration);
+  animation-fill-mode: forwards;
+  animation-timing-function: var(--intro-ease);
+  will-change: transform;
+}
+
+.intro--active .intro__sword {
+  animation-name: intro-sword-settle;
+}
+
+.intro--active .intro__letter {
+  animation-name: intro-letter-reveal;
+}
+
+.intro__letter--v {
+  --intro-start-x: calc(var(--intro-letter-slot) * 17.05);
+  animation-delay: 0ms;
+}
+
+.intro__letter--e-left {
+  --intro-start-x: calc(var(--intro-letter-slot) * 12.55);
+  animation-delay: 145ms;
+}
+
+.intro__letter--s {
+  --intro-start-x: calc(var(--intro-letter-slot) * 8.05);
+  animation-delay: 285ms;
+}
+
+.intro__letter--t {
+  --intro-start-x: calc(var(--intro-letter-slot) * 3.55);
+  animation-delay: 430ms;
+}
+
+.intro__letter--n {
+  --intro-start-x: calc(var(--intro-letter-slot) * -3.55);
+  animation-delay: 430ms;
+}
+
+.intro__letter--g {
+  --intro-start-x: calc(var(--intro-letter-slot) * -8.05);
+  animation-delay: 285ms;
+}
+
+.intro__letter--e-right {
+  --intro-start-x: calc(var(--intro-letter-slot) * -12.55);
+  animation-delay: 145ms;
+}
+
+.intro__letter--r {
+  --intro-start-x: calc(var(--intro-letter-slot) * -17.05);
+  animation-delay: 0ms;
+}
+
+@keyframes intro-letter-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--intro-start-x), 0, 0);
+  }
+
+  18% {
+    opacity: 0;
+  }
+
+  42% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes intro-sword-settle {
+  0% {
+    transform: scale(var(--intro-sword-initial-scale));
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 36rem) {
+  .intro {
+    --intro-meta-inline: 0.875rem;
+    --intro-meta-block: 0.875rem;
+  }
+
+  .intro__meta {
+    font-size: 0.5rem;
+    line-height: 1.45;
+    letter-spacing: 0.08em;
+  }
+}
+/*
+@media (prefers-reduced-motion: reduce) {
+  .intro__letter,
+  .intro__sword {
+    animation: none;
+    transition: none;
+  }
+
+  .intro__letter {
+    opacity: 1;
+    transform: none;
+  }
+
+  .intro__sword {
+    transform: none;
+  }
+}
+*/
