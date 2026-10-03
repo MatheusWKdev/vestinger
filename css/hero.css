@@ -1,0 +1,121 @@
+.hero {
+    --hero-reveal-duration: 1600ms;
+    --hero-reveal-scale: 1.03;
+    --hero-reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    background: var(--color-black);
+}
+
+.hero__landscape {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transform: scale(var(--hero-reveal-scale));
+    transform-origin: center;
+    transition:
+        opacity var(--hero-reveal-duration) ease,
+        transform var(--hero-reveal-duration) var(--hero-reveal-ease);
+    will-change: opacity, transform;
+}
+
+.hero--revealed .hero__landscape {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero__content {
+    position: absolute;
+    z-index: 1;
+    top: clamp(8rem, 22svh, 12rem);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(90vw, 52rem);
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.hero__title {
+    max-width: 52rem;
+    color: var(--color-soft-white);
+    font-family: var(--font-brand-temp);
+    font-size: clamp(2rem, 4.2vw, 4rem);
+    font-weight: 700;
+    line-height: 0.96;
+    letter-spacing: 0;
+    opacity: 0;
+    transform: translateY(0.45rem);
+    transition:
+        opacity 1100ms ease 420ms,
+        transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 420ms;
+}
+
+.hero__title span {
+    display: block;
+}
+
+.hero__cta-wrap {
+    position: absolute;
+    z-index: 1;
+    bottom: clamp(2rem, 6svh, 4rem);
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    width: min(90vw, 52rem);
+    transform: translateX(-50%);
+}
+
+.hero__cta {
+    padding: 0.9rem 1.25rem;
+    border: 1px solid var(--color-soft-white);
+    border-radius: 999px;
+    background: var(--color-soft-white);
+    color: var(--color-black);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(0.64rem, 0.72vw, 0.74rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(0.45rem);
+    margin-bottom: 50px;
+    transition:
+        opacity 1000ms ease 620ms,
+        transform 1100ms cubic-bezier(0.16, 1, 0.3, 1) 620ms,
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+    background: transparent;
+    color: var(--color-soft-white);
+}
+
+.hero__cta:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 0.25rem;
+}
+
+.hero--revealed .hero__title,
+.hero--revealed .hero__cta {
+    opacity: 1;
+    transform: translateY(0);
+}

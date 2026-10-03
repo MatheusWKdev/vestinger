@@ -6,10 +6,15 @@
   --intro-letter-duration: 1500ms;
   --intro-sword-duration: 2000ms;
   --intro-ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --intro-elements-exit-duration: 800ms;
+  --intro-background-exit-duration: 550ms;
+  --intro-background-exit-delay: 800ms;
   --intro-meta-inline: clamp(1rem, 2vw, 2.5rem);
   --intro-meta-block: clamp(1rem, 2vw, 2.5rem);
 
-  position: relative;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
   display: grid;
   place-items: center;
   width: 100%;
@@ -17,6 +22,7 @@
   height: 100svh;
   overflow: hidden;
   background: var(--color-black);
+  transition: background-color var(--intro-background-exit-duration) ease var(--intro-background-exit-delay);
 }
 
 .intro__meta {
@@ -37,6 +43,22 @@
 
 .intro--active .intro__meta {
   opacity: 1;
+}
+
+.intro--exiting {
+  background-color: transparent;
+}
+
+.intro--exiting .intro__mark,
+.intro--exiting .intro__meta {
+  opacity: 0;
+  transition: opacity var(--intro-elements-exit-duration) ease;
+}
+
+.intro--complete {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .intro__meta--top-left,
@@ -79,6 +101,8 @@
   justify-content: center;
   width: min(92vw, calc((var(--intro-letter-slot) * 8) + (var(--intro-letter-slot) * 0.58)));
   margin-inline: auto;
+  opacity: 1;
+  transition: opacity var(--intro-elements-exit-duration) ease;
 }
 
 .intro__letter {
