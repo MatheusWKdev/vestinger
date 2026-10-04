@@ -1,0 +1,125 @@
+.manifesto {
+    --manifesto-black: #000;
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: visible;
+    background: var(--manifesto-black);
+}
+
+.manifesto::before {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: clamp(5rem, 14svh, 9rem);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 28%,
+        rgba(0, 0, 0, 0.68) 68%,
+        var(--manifesto-black) 100%
+    );
+    content: "";
+    pointer-events: none;
+}
+
+.manifesto__stage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    background: var(--manifesto-black);
+    isolation: isolate;
+}
+
+.manifesto__atmosphere,
+.manifesto__content {
+    position: absolute;
+    inset: 0;
+}
+
+.manifesto__atmosphere {
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.manifesto__content {
+    z-index: 1;
+    pointer-events: none;
+}
+
+.manifesto__candle {
+    position: absolute;
+    bottom: clamp(-4rem, -6svh, -2rem);
+    left: 50%;
+    width: clamp(28rem, 56vw, 52rem);
+    height: auto;
+    max-width: none;
+    background: var(--manifesto-black);
+    opacity: 0;
+    visibility: hidden;
+    filter: brightness(0.92) contrast(1.18);
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(ellipse 72% 76% at 50% 56%, #000 55%, rgba(0, 0, 0, 0.92) 68%, transparent 100%);
+    mask-image: radial-gradient(ellipse 72% 76% at 50% 56%, #000 55%, rgba(0, 0, 0, 0.92) 68%, transparent 100%);
+    translate: -50% 0;
+    transform: translate3d(0, 0.75rem, 0);
+    will-change: opacity, transform;
+}
+
+.manifesto__typography {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.manifesto__type-slot {
+    position: absolute;
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.manifesto__type-slot--large {
+    right: clamp(2rem, 4vw, 5rem);
+    bottom: 7svh;
+    width: min(64vw, 80rem);
+    color: rgba(242, 240, 235, 0.94);
+    font-size: clamp(2.4rem, 4vw, 5rem);
+    line-height: 0.82;
+    text-align: right;
+}
+
+.manifesto__type-slot--small {
+    top: clamp(4rem, 10svh, 7rem);
+    left: clamp(1.5rem, 3vw, 3.75rem);
+    width: min(24vw, 20rem);
+    color: rgba(242, 240, 235, 0.78);
+    font-size: clamp(0.78rem, 1.15vw, 1.15rem);
+    line-height: 0.9;
+    text-align: left;
+}
+
+.manifesto__phrase {
+    margin: 0;
+    visibility: hidden;
+    opacity: 0;
+    will-change: clip-path, opacity, transform;
+}
+
+.manifesto__phrase + .manifesto__phrase {
+    margin-top: 0.16em;
+}
+
+.manifesto__phrase span {
+    display: block;
+    white-space: nowrap;
+}

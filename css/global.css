@@ -10,10 +10,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     min-height: 100vh;
     background: var(--color-black);

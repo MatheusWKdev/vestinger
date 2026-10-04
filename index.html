@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/intro.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/manifesto.css">
+    <link rel="stylesheet" href="css/selected-work.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
 
     <title>Vestinger</title>
 </head>
@@ -86,8 +89,169 @@
                 alt="Notebook diante de uma paisagem costeira ao entardecer"
             >
         </section>
+
+        <section id="manifesto" class="manifesto" aria-label="Manifesto Vestinger">
+            <div class="manifesto__stage">
+                <div class="manifesto__atmosphere" aria-hidden="true">
+                    <video
+                        class="manifesto__candle"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                    >
+                        <source src="assets/videos/manifesto-candle.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="manifesto__content">
+                    <div
+                        class="manifesto__typography"
+                        role="group"
+                        aria-label="Entendemos a marca. Definimos uma direção. Transformamos ideias em presença digital."
+                    >
+                        <div class="manifesto__type-slot manifesto__type-slot--large" aria-hidden="true">
+                            <p class="manifesto__phrase"><span>ENTENDEMOS</span><span>A MARCA,</span></p>
+                            <p class="manifesto__phrase"><span>DEFINIMOS</span><span>UMA DIREÇÃO,</span></p>
+                            <p class="manifesto__phrase"><span>TRANSFORMAMOS</span><span>IDEIAS,</span></p>
+                            <p class="manifesto__phrase"><span>EM PRESENÇA</span><span>DIGITAL.</span></p>
+                        </div>
+
+                        <div class="manifesto__type-slot manifesto__type-slot--small" aria-hidden="true">
+                            <p class="manifesto__phrase"><span>ENTENDEMOS</span><span>A MARCA,</span></p>
+                            <p class="manifesto__phrase"><span>DEFINIMOS</span><span>UMA DIREÇÃO,</span></p>
+                            <p class="manifesto__phrase"><span>TRANSFORMAMOS</span><span>IDEIAS,</span></p>
+                            <p class="manifesto__phrase"><span>EM PRESENÇA</span><span>DIGITAL.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="selected-work" aria-labelledby="selected-work-title">
+            <article id="helena-martins" class="project-showcase" aria-labelledby="helena-title">
+                <div class="project-showcase__stage">
+                    <div class="project-showcase__scenery" aria-hidden="true">
+                        <div class="project-showcase__arc"></div>
+                        <div class="project-showcase__organic"></div>
+                        <div class="project-showcase__plane project-showcase__plane--left"></div>
+                        <div class="project-showcase__plane project-showcase__plane--rear"></div>
+                        <div class="project-showcase__plane project-showcase__plane--right"></div>
+                        <span class="project-showcase__cross project-showcase__cross--left"></span>
+                        <span class="project-showcase__cross project-showcase__cross--right"></span>
+                    </div>
+                    <header class="project-showcase__meta project-showcase__meta--primary">
+                        <p class="project-showcase__number">01 /</p>
+                        <h2 id="selected-work-title">PROJETOS SELECIONADOS</h2>
+                        <ul aria-label="Serviços e ano do projeto Helena Martins">
+                            <li>LANDING PAGE</li>
+                            <li>WEB DESIGN</li>
+                            <li>DEVELOPMENT</li>
+                            <li>2026</li>
+                        </ul>
+                    </header>
+
+                    <aside class="project-showcase__meta project-showcase__meta--secondary" aria-label="Informações do projeto">
+                        <div>
+                            <span>ROLE</span>
+                            <p>DESIGN / DEVELOPMENT</p>
+                        </div>
+                        <div>
+                            <span>STATUS</span>
+                            <p>FICTÍCIO</p>
+                        </div>
+                        <span class="project-showcase__meta-arrow" aria-hidden="true">&#8599;</span>
+                    </aside>
+
+                    <h3 id="helena-title" class="project-showcase__title">
+                        <span>HELENA</span>
+                        <span>MARTINS</span>
+                    </h3>
+
+                    <p class="project-showcase__editorial-line">
+                        <span>CLAREZA PARA</span>
+                        <span>DECISÕES DELICADAS.</span>
+                    </p>
+
+                    <figure class="project-showcase__visual project-showcase__visual--philosophy">
+                        <img
+                            src="assets/images/helena-sobre-desktop.png"
+                            alt="Recorte do bloco de filosofia da Helena Martins"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <figure class="project-showcase__visual project-showcase__visual--contact">
+                        <img
+                            src="assets/images/helena-contato-desktop.png"
+                            alt="Recorte da seção de contato da Helena Martins, com headline e formulário"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <figure class="project-showcase__visual project-showcase__visual--about">
+                        <img
+                            src="assets/images/helena-sobre-desktop.png"
+                            alt="Seção Sobre do projeto Helena Martins em desktop"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <div class="project-showcase__hero-plane">
+                        <figure class="project-showcase__visual project-showcase__visual--hero">
+                            <img
+                                src="assets/images/helena-hero-desktop.png"
+                                alt="Hero desktop do projeto conceitual Helena Martins Advocacia"
+                            >
+                        </figure>
+                    </div>
+
+                    <figure class="project-showcase__visual project-showcase__visual--contact-detail">
+                        <img
+                            src="assets/images/helena-contato-desktop.png"
+                            alt="Seção de contato completa, com headline e formulário"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <div class="project-showcase__mobile-group">
+                        <div class="project-showcase__device" aria-label="Hero mobile do projeto Helena Martins">
+                            <span class="project-showcase__device-camera" aria-hidden="true"></span>
+                            <div class="project-showcase__device-screen">
+                                <img
+                                    src="assets/images/helena-hero-mobile.png"
+                                    alt="Hero mobile do projeto Helena Martins Advocacia"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </div>
+                        <p><span>RESPONSIVO</span>DESKTOP / TABLET / MOBILE</p>
+                    </div>
+
+                    <footer class="project-showcase__footer">
+                        <p class="project-showcase__disclaimer">
+                            <span aria-hidden="true"></span>
+                            PROJETOS TOTALMENTE FICTÍCIOS.
+                        </p>
+
+                        <a class="project-showcase__link" href="https://helena-martins-landing-page.vercel.app/" target="_blank" rel="noopener noreferrer" data-project-url-pending>
+                            VER PROJETO <span aria-hidden="true">&#8599;</span>
+                        </a>
+                    </footer>
+                </div>
+            </article>
+
+            <div class="selected-work__next" aria-label="Início do próximo projeto">
+                <p><span>02 /</span>PROJETOS SELECIONADOS</p>
+                <span class="selected-work__next-line" aria-hidden="true"></span>
+            </div>
+        </section>
     </main>
 
+    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script src="js/vendor/gsap.min.js"></script>
+    <script src="js/vendor/ScrollTrigger.min.js"></script>
     <script src="js/main.js" type="module"></script>
 </body>
 </html>
